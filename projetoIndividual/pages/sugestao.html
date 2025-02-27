@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestões</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../imgs/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../imgs/icon.ico" type="image/x-icon">
+    <style>
+        body {
+            text-align: center;
+        }
+        h2, h3{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #2d572c;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-success text-white text-center py-3">
+        <h1>Sustentabilidade Ambiental</h1>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-center" id="navbar">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item"><a class="nav-link text-white" href="login.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="../index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="reciclagem.html">Reciclagem</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="sustentabilidade.html">Sustentabilidade</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="iniciativas_verdes.html">Iniciativas Verdes</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="sugestao.html">Sugestão</a></li>
+                        <li class="nav-item dropdown">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h2 class="sugestao">Sugestões</h2>
+    <form id="sugestaoForm">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="text" id="sobrenome" placeholder="Seu sobrenome" required>
+        <input type="email" id="email" placeholder="Seu email" required>
+        <textarea id="sugestao" placeholder="Sua sugestão" required></textarea>
+        <button type="submit">Enviar</button>
+        <button id="limparSugestoes">Limpar</button>
+    </form>
+
+    <h3 class="sugestao">Sugestões enviadas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>sobrenome</th>
+                <th>Email</th>
+                <th>Sugestão</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaSugestoes">
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", carregarSugestoes);
+
+        document.getElementById("sugestaoForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let nome = document.getElementById("nome").value;
+            let sobrenome = document.getElementById("sobrenome").value;
+            let email = document.getElementById("email").value;
+            let sugestao = document.getElementById("sugestao").value;
+
+            if (nome && sobrenome && email && sugestao) {
+                let sugestoes = JSON.parse(localStorage.getItem("sugestoes")) || [];
+                sugestoes.push({ nome, sobrenome, email, sugestao });
+                localStorage.setItem("sugestoes", JSON.stringify(sugestoes));
+                document.getElementById("sugestaoForm").reset();
+                carregarSugestoes();
+            }
+        });
+
+        function carregarSugestoes() {
+            let tabela = document.getElementById("tabelaSugestoes");
+            tabela.innerHTML = "";
+            let sugestoes = JSON.parse(localStorage.getItem("sugestoes")) || [];
+
+            sugestoes.forEach((item) => {
+                let tr = document.createElement("tr");
+                tr.innerHTML = `<td>${item.nome}</td><td>${item.sobrenome}</td><td>${item.email}</td><td>${item.sugestao}</td>`;
+                tabela.appendChild(tr);
+            });
+        }
+
+        document.getElementById("limparSugestoes").addEventListener("click", function () {
+            localStorage.removeItem("sugestoes");
+            carregarSugestoes();
+        });
+    </script>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
