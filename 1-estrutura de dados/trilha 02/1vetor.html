@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Vetor</title>
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+    <h2>Manipulação de Vetor</h2>
+    <p>Vetor Atual: <span id="vetor">[1,2,3,4,5,6,7,8,9,10]</span></p>
+    
+    <h3>Buscar Número</h3>
+    <input type="number" id="numeroBusca" placeholder="Digite um número">
+    <button onclick="buscarNumero()">Buscar</button>
+    <p id="resultadoBusca"></p>
+    
+    <h3>Remover por Posição</h3>
+    <input type="number" id="posicaoRemover" placeholder="Digite a posição">
+    <button onclick="removerElemento()">Remover</button>
+    <p id="resultadoRemocao"></p>
+    
+    <script>
+        let vetor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        function atualizarVetor() {
+            document.getElementById("vetor").textContent = JSON.stringify(vetor);
+        }
+
+        function buscarNumero() {
+            let numero = parseInt(document.getElementById("numeroBusca").value);
+            let index = vetor.indexOf(numero);
+            let resultado = index !== -1 ? `Número encontrado na posição ${index}` : "Número não encontrado";
+            document.getElementById("resultadoBusca").textContent = resultado;
+        }
+
+        function removerElemento() {
+            let posicao = parseInt(document.getElementById("posicaoRemover").value);
+            if (posicao < 0 || posicao >= vetor.length) {
+                document.getElementById("resultadoRemocao").textContent = "Posição inválida";
+                return;
+            }
+            vetor.splice(posicao, 1);
+            atualizarVetor();
+            document.getElementById("resultadoRemocao").textContent = "Elemento removido com sucesso";
+        }
+    </script>
+</body>
+</html>
