@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Duplamente Encadeada</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+
+    <h2>Lista Duplamente Encadeada</h2>
+    <p>Vetor Atual: <span id="vetor">[]</span></p>
+
+    <h3>Inserir no Início</h3>
+    <input type="number" id="valorInserir" placeholder="Digite um número">
+    <button onclick="inserirInicio()">Inserir</button>
+
+    <h3>Remover do Final</h3>
+    <button onclick="removerFinal()">Remover</button>
+
+    <h3>Exibir a Lista</h3>
+    <button onclick="exibirLista()">Exibir Lista (Início para Fim e Fim para Início)</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        class Node {
+            constructor(valor) {
+                this.valor = valor;
+                this.anterior = null;
+                this.proximo = null;
+            }
+        }
+
+        class ListaDuplamenteEncadeada {
+            constructor() {
+                this.head = null;
+                this.tail = null;
+            }
+
+            // Inserir no início da lista
+            inserirInicio(valor) {
+                const novoNo = new Node(valor);
+                if (!this.head) {
+                    this.head = this.tail = novoNo;
+                } else {
+                    novoNo.proximo = this.head;
+                    this.head.anterior = novoNo;
+                    this.head = novoNo;
+                }
+            }
+
+            // Remover do final da lista
+            removerFinal() {
+                if (!this.tail) return null; // Lista vazia
+
+                const valorRemovido = this.tail.valor;
+
+                if (this.head === this.tail) {
+                    // Se houver apenas um elemento
+                    this.head = this.tail = null;
+                } else {
+                    this.tail = this.tail.anterior;
+                    this.tail.proximo = null;
+                }
+                return valorRemovido;
+            }
+
+            // Exibir a lista em ambas as direções
+            exibirLista() {
+                let atual = this.head; 
+                let listaEmOrdem = "";
+                while (atual) {
+                    listaEmOrdem += atual.valor + " - ";
+                    atual = atual.proximo;
+                }
+
+                atual = this.tail;
+                let listaReversa = "";
+                while (atual) {
+                    listaReversa += atual.valor + " - ";
+                    atual = atual.anterior;
+                }
+                let mostrarLista = listaEmOrdem + " |<<<<<<<|>>>>>>>| " + listaReversa;
+
+                return mostrarLista;
+            }
+        }
+        const lista = new ListaDuplamenteEncadeada();
+
+        function inserirInicio() {
+            const valor = parseInt(document.getElementById("valorInserir").value);
+            if (!isNaN(valor)) {
+                lista.inserirInicio(valor);
+                document.getElementById("vetor").textContent = lista.exibirLista();
+                document.getElementById("resultado").textContent = `Elemento ${valor} inserido no início.`;
+            } else {
+                document.getElementById("resultado").textContent = "Por favor, insira um número válido.";
+            }
+        }
+
+        function removerFinal() {
+            const valorRemovido = lista.removerFinal();
+            if (valorRemovido !== null) {
+                document.getElementById("vetor").textContent = lista.exibirLista();
+                document.getElementById("resultado").textContent = `Elemento ${valorRemovido} removido do final.`;
+            } else {
+                document.getElementById("resultado").textContent = "Lista vazia.";
+            }
+        }
+
+        function exibirLista() {
+            document.getElementById("vetor").innerHTML = lista.exibirLista();
+        }
+    </script>
+
+</body>
+</html>

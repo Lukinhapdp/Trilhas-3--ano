@@ -7,9 +7,7 @@
 </head>
 <body>
     <style>
-        body{
-            text-align: center;
-        }
+        body{text-align: center;}
     </style>
     <h2>Manipulação de Vetor</h2>
     <p>Vetor Atual: <span id="vetor">[1,2,3,4,5,6,7,8,9,10]</span></p>
@@ -43,7 +41,7 @@
 
         function buscarNumero() {
             let numero = parseInt(document.getElementById("numeroBusca").value);
-            let index = vetor.indexOf(Number(numeroBusca));
+            let index = vetor.indexOf(numero);
             let resultado = index !== -1 ? `Número encontrado na posição ${index}` : "Número não encontrado";
             document.getElementById("resultadoBusca").textContent = resultado;
         }
