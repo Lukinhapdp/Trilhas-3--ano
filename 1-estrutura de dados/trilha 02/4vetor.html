@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Vetor</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificar Parênteses Balanceados</h1>
+    <input type="text" id="expressao" placeholder="Digite a expressão aritmética">
+    <button onclick="verificarExpressao()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        class Pilha {
+            constructor(tamanhoMaximo) {
+                this.tamanhoMaximo = tamanhoMaximo;
+                this.itens = [];
+            }
+
+            empilhar(elemento) {
+                if (this.estaCheia()) {
+                    alert('A pilha está cheia.');
+                    return;
+                }
+                this.itens.push(elemento);
+            }
+
+            desempilhar() {
+                if (this.estaVazia()) {
+                    alert('A pilha está vazia.');
+                    return null;
+                }
+                return this.itens.pop();
+            }
+
+            estaVazia() {
+                return this.itens.length === 0;
+            }
+
+            estaCheia() {
+                return this.itens.length === this.tamanhoMaximo;
+            }
+
+            topo() {
+                if (this.estaVazia()) return null;
+                return this.itens[this.itens.length - 1];
+            }
+        }
+
+        function verificarParentesesBalanceados(expressao) {
+            const pilha = new Pilha(expressao.length);
+
+            for (let i = 0; i < expressao.length; i++) {
+                const caractere = expressao[i];
+
+                if (caractere === '(') {
+                    pilha.empilhar(caractere);
+                } else if (caractere === ')') {
+                    if (pilha.estaVazia()) {
+                        return false;
+                    }
+                    pilha.desempilhar();
+                }
+            }
+
+            return pilha.estaVazia();
+        }
+
+        function verificarExpressao() {
+            const expressao = document.getElementById('expressao').value;
+            const resultado = verificarParentesesBalanceados(expressao);
+            document.getElementById('resultado').textContent = resultado ? 'Expressão Balanceada ✅' : 'Expressão Não Balanceada ❌';
+        }
+    </script>
+</body>
+</html>

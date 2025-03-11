@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento de Banco com Fila</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        input { margin: 5px; }
+        button { margin: 5px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Simulação de Atendimento de Banco</h1>
+    <input type="text" id="nomeCliente" placeholder="Nome do Cliente">
+    <button onclick="adicionarCliente()">Adicionar Cliente</button>
+    <button onclick="atenderCliente()">Atender Cliente</button>
+
+    <h3>Fila Atual:</h3>
+    <p id="fila"></p>
+
+    <script>
+        class Fila {
+            constructor(tamanhoMaximo) {
+                this.itens = [];
+                this.tamanhoMaximo = tamanhoMaximo;
+            }
+
+            enqueue(elemento) {
+                if (this.itens.length >= this.tamanhoMaximo) {
+                    alert('A fila está cheia.');
+                    return;
+                }
+                this.itens.push(elemento);
+            }
+
+            dequeue() {
+                if (this.estaVazia()) {
+                    alert('A fila está vazia.');
+                    return null;
+                }
+                return this.itens.shift();
+            }
+
+            estaVazia() {
+                return this.itens.length === 0;
+            }
+
+            mostrarFila() {
+                return this.itens.join(', ');
+            }
+        }
+
+        const banco = new Fila(5);
+
+        function adicionarCliente() {
+            const nome = document.getElementById('nomeCliente').value.trim();
+            if (nome) {
+                banco.enqueue(nome);
+                atualizarFila();
+                document.getElementById('nomeCliente').value = '';
+            } else {
+                alert('Por favor, insira o nome do cliente.');
+            }
+        }
+
+        function atenderCliente() {
+            const cliente = banco.dequeue();
+            if (cliente) {
+                alert(`Cliente ${cliente} foi atendido.`);
+                atualizarFila();
+            }
+        }
+
+        function atualizarFila() {
+            document.getElementById('fila').textContent = banco.mostrarFila() || 'A fila está vazia.';
+        }
+    </script>
+</body>
+</html>

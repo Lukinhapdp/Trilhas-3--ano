@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travessia de Árvores Binárias</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        button { margin: 5px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Travessia de Árvores Binárias</h1>
+    <button onclick="mostrarInOrder()">Percurso In-Order</button>
+    <button onclick="mostrarPreOrder()">Percurso Pre-Order</button>
+    <button onclick="mostrarPostOrder()">Percurso Post-Order</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        class No {
+            constructor(valor) {
+                this.valor = valor;
+                this.esquerda = null;
+                this.direita = null;
+            }
+        }
+        
+        const raiz = new No(1);
+        raiz.esquerda = new No(2);
+        raiz.direita = new No(3);
+        raiz.esquerda.esquerda = new No(4);
+        raiz.esquerda.direita = new No(5);
+
+        function inOrder(no, resultado = []) {
+            if (no) {
+                inOrder(no.esquerda, resultado);
+                resultado.push(no.valor);
+                inOrder(no.direita, resultado);
+            }
+            return resultado;
+        }
+
+        function preOrder(no, resultado = []) {
+            if (no) {
+                resultado.push(no.valor);
+                preOrder(no.esquerda, resultado);
+                preOrder(no.direita, resultado);
+            }
+            return resultado;
+        }
+
+        function postOrder(no, resultado = []) {
+            if (no) {
+                postOrder(no.esquerda, resultado);
+                postOrder(no.direita, resultado);
+                resultado.push(no.valor);
+            }
+            return resultado;
+        }
+
+        function mostrarInOrder() {
+            document.getElementById('resultado').textContent = 'In-Order: ' + inOrder(raiz).join(', ');
+        }
+
+        function mostrarPreOrder() {
+            document.getElementById('resultado').textContent = 'Pre-Order: ' + preOrder(raiz).join(', ');
+        }
+
+        function mostrarPostOrder() {
+            document.getElementById('resultado').textContent = 'Post-Order: ' + postOrder(raiz).join(', ');
+        }
+    </script>
+</body>
+</html>

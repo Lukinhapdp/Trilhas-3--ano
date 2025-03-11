@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Recursivo Simples</title>
+</head>
+<body>
+    <h1>Calculadora de Fibonacci</h1>
+    <input type="number" id="numero" placeholder="Digite um número" min="0">
+    <button onclick="calcularFibonacci()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function fibonacci(n) {
+            if (n <= 1) return n;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+        function calcularFibonacci() {
+            const numero = parseInt(document.getElementById('numero').value);
+            if (isNaN(numero) || numero < 0) {
+                document.getElementById('resultado').textContent = 'Insira um número válido!';
+                return;
+            }
+            const resultado = fibonacci(numero);
+            document.getElementById('resultado').textContent = `Fibonacci de ${numero} é ${resultado}.`;
+        }
+    </script>
+</body>
+</html>

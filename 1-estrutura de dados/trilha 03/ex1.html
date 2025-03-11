@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial Recursivo</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        input { margin: 10px; padding: 5px; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Cálculo de Fatorial Recursivo</h1>
+    <input type="number" id="numero" placeholder="Digite um número" min="0">
+    <button onclick="calcularFatorial()">Calcular Fatorial</button>
+    <p id="resultado"></p>
+
+    <script>
+        function fatorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * fatorial(n - 1);
+        }
+
+        function calcularFatorial() {
+            const numero = parseInt(document.getElementById('numero').value);
+
+            if (isNaN(numero) || numero < 0) {
+                document.getElementById('resultado').textContent = 'Por favor, insira um número inteiro não negativo.';
+                return;
+            }
+
+            const resultado = fatorial(numero);
+            document.getElementById('resultado').textContent = `O fatorial de ${numero} é ${resultado}.`;
+        }
+    </script>
+</body>
+</html>
