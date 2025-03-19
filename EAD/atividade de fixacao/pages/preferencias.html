@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferências e Redes Sociais</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/icon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="icon">🏠</i> Incio</a></li>
+                    <li><a href="informacoes-pessoais.html"><i class="icon">👤</i> Informações Pessoais</a></li>
+                    <li><a href="contato.html"><i class="icon">📞</i> Contato</a></li>
+                    <li><a href="credenciais.html"><i class="icon">🔑</i> Credenciais</a></li>
+                    <li><a href="profissional.html"><i class="icon">💼</i> Profissional</a></li>
+                    <li><a href="preferencias.html"><i class="icon">🎵</i> Preferências</a></li>
+                    <li><a href="pagamento.html"><i class="icon">💳</i> Pagamento</a></li>
+                    <li><a href="outros.html"><i class="icon">📄</i> Outros</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-image">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Preferências e Redes Sociais</h1>
+            </header>
+            <section class="form-section">
+                <div class="card">
+                    <form id="form-preferencias">
+                        <label for="generoMusical">Gênero Musical Favorito:</label>
+                        <input type="text" id="generoMusical" name="generoMusical">
+
+                        <label>Hobbies:</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="futebol" name="hobbies" value="futebol">
+                            <label for="futebol">Futebol</label>
+                            <input type="checkbox" id="leitura" name="hobbies" value="leitura">
+                            <label for="leitura">Leitura</label>
+                            <input type="checkbox" id="viagens" name="hobbies" value="viagens">
+                            <label for="viagens">Viagens</label>
+                            <input type="checkbox" id="musica" name="hobbies" value="musica">
+                            <label for="musica">Música</label>
+                        </div>
+
+                        <label for="facebook">Facebook:</label>
+                        <input type="url" id="facebook" name="facebook">
+
+                        <label for="instagram">Instagram:</label>
+                        <input type="url" id="instagram" name="instagram">
+
+                        <label for="linkedin">LinkedIn:</label>
+                        <input type="url" id="linkedin" name="linkedin">
+
+                        <label>Notificações via E-mail:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="notificacaoSim" name="notificacao" value="sim">
+                            <label for="notificacaoSim">Sim</label>
+                            <input type="radio" id="notificacaoNao" name="notificacao" value="nao">
+                            <label for="notificacaoNao">Não</label>
+                        </div>
+                    </form>
+                    <button class="button save" onclick="validarPreferencias()">Salvar</button>
+                    <button class="button clear" onclick="limparFormulario('form-preferencias')">Limpar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Cadastro. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

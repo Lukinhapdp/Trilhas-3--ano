@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações Pessoais</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/icon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="icon">🏠</i> Incio</a></li>
+                    <li><a href="pessoais.html"><i class="icon">👤</i> Informações Pessoais</a></li>
+                    <li><a href="contato.html"><i class="icon">📞</i> Contato</a></li>
+                    <li><a href="credenciais.html"><i class="icon">🔑</i> Credenciais</a></li>
+                    <li><a href="profissional.html"><i class="icon">💼</i> Profissional</a></li>
+                    <li><a href="preferencias.html"><i class="icon">🎵</i> Preferências</a></li>
+                    <li><a href="pagamento.html"><i class="icon">💳</i> Pagamento</a></li>
+                    <li><a href="outros.html"><i class="icon">📄</i> Outros</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-image">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Informações Pessoais</h1>
+            </header>
+            <section class="form-section">
+                <div class="card">
+                    <form id="form-info-pessoais">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+
+                        <label for="dataNascimento">Data de Nascimento:</label>
+                        <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo" name="sexo" required>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required>
+
+                        <label for="rg">RG:</label>
+                        <input type="text" id="rg" name="rg" required>
+
+                        <label for="estadoCivil">Estado Civil:</label>
+                        <select id="estadoCivil" name="estadoCivil" required>
+                            <option value="solteiro">Solteiro(a)</option>
+                            <option value="casado">Casado(a)</option>
+                            <option value="divorciado">Divorciado(a)</option>
+                        </select>
+
+                        <label for="fotoPerfil">Foto de Perfil:</label>
+                        <input type="file" id="fotoPerfil" name="fotoPerfil" accept="image/*">
+
+                        <label for="assinaturaDigital">Assinatura Digital:</label>
+                        <input type="file" id="assinaturaDigital" name="assinaturaDigital" accept="image/*">
+                    </form>
+                    <button class="button save" onclick="validarInformacoesPessoais()">Salvar</button>
+                    <button class="button clear" onclick="limparFormulario('form-info-pessoais')">Limpar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Cadastro. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

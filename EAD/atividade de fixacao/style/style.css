@@ -1,0 +1,261 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px; /* Espaço para o cabeçalho fixo */
+    padding-left: 300px; /* Espaço para a barra lateral fixa */
+}
+
+/* Cabeçalho fixo */
+.header {
+    background: linear-gradient(135deg, #3e0877, #41639f);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Barra lateral fixa com rolagem */
+.sidebar {
+    width: 300px;
+    background: linear-gradient(135deg, #3e0877, #41639f);
+    color: #fff;
+    display: flex;
+    margin-top: 5px;
+    height: 78%;
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+    position: fixed;
+    top: 80px; /* Alinhado abaixo do cabeçalho */
+    left: 0;
+    bottom: 60px; /* Alinhado acima do footer */
+    overflow-y: auto; /* Adiciona barra de rolagem */
+    z-index: 999;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.sidebar nav ul li a .icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.sidebar-image img {
+    width: 80%;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background: #fff;
+    margin-left: 20px; /* Espaço entre a barra lateral e o conteúdo */
+    margin-right: 20px;
+    margin-top: 20px; /* Espaço abaixo do cabeçalho */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+    padding: 20px;
+    text-align: center;
+    color: #555;
+}
+
+.intro p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Formulários */
+.form-section {
+    padding: 20px;
+    flex: 1;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #6a11cb;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #555;
+}
+
+.card form input,
+.card form select,
+.card form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card form input:focus,
+.card form select:focus,
+.card form textarea:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+}
+
+.card form input[type="checkbox"],
+.card form input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.checkbox-group,
+.radio-group {
+    margin-bottom: 20px;
+}
+
+/* Botões */
+.button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.button.save {
+    background: linear-gradient(135deg, #3e0877, #41639f);
+    color: #fff;
+}
+
+.button.save:hover {
+    background: linear-gradient(135deg, #3e0877, #41639f);
+    transform: translateY(-2px);
+}
+
+.button.clear {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: #fff;
+}
+
+.button.clear:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    transform: translateY(-2px);
+}
+
+/* Footer fixo */
+.footer {
+    background: linear-gradient(135deg, #3e0877, #41639f);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        padding: 20px;
+        bottom: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+}

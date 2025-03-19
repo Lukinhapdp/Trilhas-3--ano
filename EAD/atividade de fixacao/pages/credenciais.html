@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credenciais de Acesso</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/icon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="icon">🏠</i> Incio</a></li>
+                    <li><a href="pessoais.html"><i class="icon">👤</i> Informações Pessoais</a></li>
+                    <li><a href="contato.html"><i class="icon">📞</i> Contato</a></li>
+                    <li><a href="credenciais.html"><i class="icon">🔑</i> Credenciais</a></li>
+                    <li><a href="profissional.html"><i class="icon">💼</i> Profissional</a></li>
+                    <li><a href="preferencias.html"><i class="icon">🎵</i> Preferências</a></li>
+                    <li><a href="pagamento.html"><i class="icon">💳</i> Pagamento</a></li>
+                    <li><a href="outros.html"><i class="icon">📄</i> Outros</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-image">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Credenciais de Acesso</h1>
+            </header>
+            <section class="form-section">
+                <div class="card">
+                    <form id="form-credenciais">
+                        <label for="usuario">Nome de Usuário:</label>
+                        <input type="text" id="usuario" name="usuario" required>
+
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+
+                        <label for="confirmarSenha">Confirmação de Senha:</label>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+
+                        <label for="perguntaSecreta">Pergunta Secreta:</label>
+                        <select id="perguntaSecreta" name="perguntaSecreta" required>
+                            <option value="pet">Qual o nome do seu primeiro pet?</option>
+                            <option value="mae">Qual o nome da sua mãe?</option>
+                            <option value="cidade">Qual cidade você nasceu?</option>
+                        </select>
+
+                        <label for="respostaSecreta">Resposta Secreta:</label>
+                        <input type="text" id="respostaSecreta" name="respostaSecreta" required>
+
+                        <label for="termos">Aceito os Termos de Uso:</label>
+                        <input type="checkbox" id="termos" name="termos" required>
+                    </form>
+                    <button class="button save" onclick="validarCredenciais()">Salvar</button>
+                    <button class="button clear" onclick="limparFormulario('form-credenciais')">Limpar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Cadastro. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

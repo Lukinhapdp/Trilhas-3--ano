@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento e Dados Bancários</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/icon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="icon">🏠</i> Incio</a></li>
+                    <li><a href="informacoes-pessoais.html"><i class="icon">👤</i> Informações Pessoais</a></li>
+                    <li><a href="contato.html"><i class="icon">📞</i> Contato</a></li>
+                    <li><a href="credenciais.html"><i class="icon">🔑</i> Credenciais</a></li>
+                    <li><a href="profissional.html"><i class="icon">💼</i> Profissional</a></li>
+                    <li><a href="preferencias.html"><i class="icon">🎵</i> Preferências</a></li>
+                    <li><a href="pagamento.html"><i class="icon">💳</i> Pagamento</a></li>
+                    <li><a href="outros.html"><i class="icon">📄</i> Outros</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-image">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Pagamento e Dados Bancários</h1>
+            </header>
+            <section class="form-section">
+                <div class="card">
+                    <form id="form-pagamento">
+                        <label for="cartao">Número do Cartão de Crédito:</label>
+                        <input type="text" id="cartao" name="cartao" required>
+
+                        <label for="vencimento">Data de Vencimento:</label>
+                        <input type="month" id="vencimento" name="vencimento" required>
+
+                        <label for="cvv">Código de Segurança (CVV):</label>
+                        <input type="number" id="cvv" name="cvv" required>
+
+                        <label for="banco">Banco:</label>
+                        <select id="banco" name="banco" required>
+                            <option value="bb">Banco do Brasil</option>
+                            <option value="caixa">Caixa</option>
+                            <option value="bradesco">Bradesco</option>
+                        </select>
+
+                        <label for="agencia">Agência:</label>
+                        <input type="text" id="agencia" name="agencia" required>
+
+                        <label for="conta">Conta Corrente:</label>
+                        <input type="text" id="conta" name="conta" required>
+
+                        <label for="tipoConta">Tipo de Conta:</label>
+                        <select id="tipoConta" name="tipoConta" required>
+                            <option value="poupanca">Poupança</option>
+                            <option value="corrente">Corrente</option>
+                        </select>
+                    </form>
+                    <button class="button save" onclick="validarPagamento()">Salvar</button>
+                    <button class="button clear" onclick="limparFormulario('form-pagamento')">Limpar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Cadastro. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

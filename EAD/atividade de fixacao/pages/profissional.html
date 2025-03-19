@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações Profissionais</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/icon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="icon">🏠</i> Incio</a></li>
+                    <li><a href="informacoes-pessoais.html"><i class="icon">👤</i> Informações Pessoais</a></li>
+                    <li><a href="contato.html"><i class="icon">📞</i> Contato</a></li>
+                    <li><a href="credenciais.html"><i class="icon">🔑</i> Credenciais</a></li>
+                    <li><a href="profissional.html"><i class="icon">💼</i> Profissional</a></li>
+                    <li><a href="preferencias.html"><i class="icon">🎵</i> Preferências</a></li>
+                    <li><a href="pagamento.html"><i class="icon">💳</i> Pagamento</a></li>
+                    <li><a href="outros.html"><i class="icon">📄</i> Outros</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-image">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Informações Profissionais</h1>
+            </header>
+            <section class="form-section">
+                <div class="card">
+                    <form id="form-profissional">
+                        <label for="ocupacao">Ocupação:</label>
+                        <input type="text" id="ocupacao" name="ocupacao" required>
+
+                        <label for="empresa">Empresa:</label>
+                        <input type="text" id="empresa" name="empresa" required>
+
+                        <label for="cnpj">CNPJ da Empresa:</label>
+                        <input type="text" id="cnpj" name="cnpj" required>
+
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" id="cargo" name="cargo" required>
+
+                        <label for="salario">Salário Aproximado:</label>
+                        <input type="number" id="salario" name="salario" required>
+
+                        <label for="dataAdmissao">Data de Admissão:</label>
+                        <input type="date" id="dataAdmissao" name="dataAdmissao" required>
+                    </form>
+                    <button class="button save" onclick="validarProfissional()">Salvar</button>
+                    <button class="button clear" onclick="limparFormulario('form-profissional')">Limpar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Cadastro. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
